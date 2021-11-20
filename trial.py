@@ -25,6 +25,7 @@ mergedDF.plot(cmap='OrRd', column='coalcons_ej', figsize= (70,35),scheme='quanti
                   "fontsize":40,
                   "loc" :"lower left",
                   #"ncol" : 10,
+                  'markerscale' : 4,
                   }
               )
 
