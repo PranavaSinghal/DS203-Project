@@ -1,7 +1,5 @@
 import pandas as pd
-import numpy as np
-import geopandas as gpd
-import shapefile as shp
+
 
 df = pd.read_excel("data/bp-stats-review-2021-consolidated-dataset-panel-format.xlsx")
 df2 = df[df["Year"] == 2015]
@@ -20,6 +18,23 @@ as_list = df4.index.tolist()
 idx = as_list.index('US')
 as_list[idx] = 'United States'
 df4.index = as_list
+### Changing "Curacao" to "Curacao (Netherlands)"
+as_list = df4.index.tolist()
+idx = as_list.index('Curacao')
+as_list[idx] = 'Curacao (Netherlands)'
+df4.index = as_list
+### Changing "Democratic Republic of Congo" to "Democratic Republic of the Congo"
+as_list = df4.index.tolist()
+idx = as_list.index('Democratic Republic of Congo')
+as_list[idx] = 'Democratic Republic of the Congo'
+df4.index = as_list
+### Changing "Trinidad & Tobago" to "Trinidad and Tobago"
+as_list = df4.index.tolist()
+idx = as_list.index('Trinidad & Tobago')
+as_list[idx] = 'Trinidad and Tobago'
+df4.index = as_list
+
+
 
 df4.index.name = 'Country'
 
