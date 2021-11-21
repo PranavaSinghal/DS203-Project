@@ -14,7 +14,9 @@ countries = countries.set_index('Country')
 data = data.set_index('Country')
 mergedDF = countries.join(data)
 
-mergedDF.plot(cmap='OrRd', column='coalcons_ej', figsize= (70,35),scheme='quantiles',  k=19, legend = True,
+mergedDF.plot(cmap='YlGn', column='coalcons_ej', figsize= (70,35),
+              scheme='quantiles',  k=19, 
+              legend = True,
               missing_kwds={
                   "color": "lightgrey",
                   "edgecolor": "grey",
@@ -31,7 +33,7 @@ mergedDF.plot(cmap='OrRd', column='coalcons_ej', figsize= (70,35),scheme='quanti
 
 x = pd.isnull(mergedDF["geometry"])
 plt.axis('off')
-plt.savefig('foo.png')
+plt.savefig('YlGn.png')
 
 #listOfCountry = []
 #for countryInData in countryData:
