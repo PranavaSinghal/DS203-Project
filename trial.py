@@ -1,18 +1,20 @@
 import geopandas as gpd
 from matplotlib import pyplot as plt
 import pandas as pd
-#import mapclassify
-#import libpysal
+
 
  # Importing the files
 data = pd.read_csv('countryx2_random.csv')
-countries = gpd.read_file("Shape file/World_Countries.shp")
+countries_shape = gpd.read_file("Shape file/World_Countries.shp")
 
-countries = countries.rename(columns={'COUNTRY': 'Country'})
 
-countries = countries.set_index('Country')
+
+ # Renaming one column from Shapefile
+countries_shape = countries_shape.rename(columns={'COUNTRY': 'Country'})
+ # Setting index as countries and merging the DFs
+countries_shape = countries_shape.set_index('Country')
 data = data.set_index('Country')
-mergedDF = countries.join(data)
+mergedDF = countries_shape.join(data)
 
 mergedDF.plot(cmap='YlGn', column='coalcons_ej', figsize= (70,35),
               scheme='quantiles',  k=19, 
@@ -30,8 +32,6 @@ mergedDF.plot(cmap='YlGn', column='coalcons_ej', figsize= (70,35),
                   'markerscale' : 4,
                   }
               )
-
-x = pd.isnull(mergedDF["geometry"])
 plt.axis('off')
 plt.savefig('YlGn.png')
 
