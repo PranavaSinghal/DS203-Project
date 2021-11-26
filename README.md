@@ -1,5 +1,6 @@
 # DS203-Project
 Data Science course project - Sustainability and Utilisation of Energy Sources 
+Project by Tanmay Dokania, Navneet and Pranava Singhal
 
 The entire project code is located in the jupyter notebook. In order to install dependencies with conda to run this notebook use the environment YAML file as follows
 
